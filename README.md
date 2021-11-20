@@ -12,3 +12,10 @@ memenuhi salah satu syarat perekrutan Golang Developer di Bibit
    - make protoc : untuk generate proto file
    - make run-app : untuk menjalankan aplikasi
    - make clean   : untuk membersihkan file generate proto
+###Tools
+- Gorm 
+- Postgresql
+- Grpc
+- Grpc-gateway
+- Viper
+- Mock & Convey Testify
