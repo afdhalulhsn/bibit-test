@@ -1,0 +1,6 @@
+server:
+  grpc:
+    host:
+    port: 8821
+    timeout: 30000
+    restHost: 8827

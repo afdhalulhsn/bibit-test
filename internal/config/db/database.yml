@@ -1,0 +1,9 @@
+database:
+  movieImdb:
+    mysql:
+      host: localhost
+      port: 5432
+      username: postgres
+      password: akuGanteng
+      dbname: log_api
+      adapter: postgre

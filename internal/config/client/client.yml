@@ -1,0 +1,5 @@
+client:
+  omdb:
+    endpoint: ''
+    url: "http://www.omdbapi.com/"
+    apiKey: "faf7e5bb"
