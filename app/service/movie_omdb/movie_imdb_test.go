@@ -46,7 +46,18 @@ func TestMovieImdbServiceImpl_GetListMovieData(t *testing.T) {
 				Page:    2,
 				Keyword: "2",
 			}
-			client.On("GetListMovieOmdb", req).Return(mock.Anything, nil)
+			var lis []*model.DataFilmList
+
+			lis = append(lis,&model.DataFilmList{
+				ImdbId: "1",
+
+			})
+			out:= &model.ResponseListFilm{
+				ListFilm: lis,
+				TotalResult: "1",
+			}
+			client.On("GetDeatailMovie", "1").Return(&model.ResponseGetDetailMovie{}, nil)
+			client.On("GetListMovieOmdb", req).Return(out, nil)
 			_, err := uc.GetListMovieData(req)
 			So(err, ShouldBeNil)
 		})
@@ -55,6 +66,17 @@ func TestMovieImdbServiceImpl_GetListMovieData(t *testing.T) {
 				client := &m.MovieImdbMockRepo{}
 				uc := NewMovieImdbServiceImpl(client)
 				_, err := uc.GetListMovieData(nil)
+				So(err, ShouldNotBeNil)
+			})
+			Convey("Error Decode Response", func() {
+				client := &m.MovieImdbMockRepo{}
+				uc := NewMovieImdbServiceImpl(client)
+				req := &model.GetListMovieRequest{
+					Page:    2,
+					Keyword: "2",
+				}
+				client.On("GetListMovieOmdb", req).Return([]string{"1"}, nil)
+				_, err := uc.GetListMovieData(req)
 				So(err, ShouldNotBeNil)
 			})
 			Convey("Error From Res Imdb", func() {
@@ -73,6 +95,28 @@ func TestMovieImdbServiceImpl_GetListMovieData(t *testing.T) {
 				uc := NewMovieImdbServiceImpl(client)
 				_, err := uc.GetListMovieData([]string{"1"})
 				So(err, ShouldNotBeNil)
+			})
+			Convey("When Get Detail Error,", func() {
+				client := &m.MovieImdbMockRepo{}
+				uc := NewMovieImdbServiceImpl(client)
+				req := &model.GetListMovieRequest{
+					Page:    2,
+					Keyword: "2",
+				}
+				var lis []*model.DataFilmList
+
+				lis = append(lis,&model.DataFilmList{
+					ImdbId: "1",
+
+				})
+				out:= &model.ResponseListFilm{
+					ListFilm: lis,
+					TotalResult: "1",
+				}
+				client.On("GetDeatailMovie", "1").Return(nil, errors.New("Err"))
+				client.On("GetListMovieOmdb", req).Return(out, nil)
+				_, err := uc.GetListMovieData(req)
+				So(err, ShouldBeNil)
 			})
 		})
 	})

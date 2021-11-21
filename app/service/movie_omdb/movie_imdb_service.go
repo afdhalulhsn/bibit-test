@@ -35,8 +35,10 @@ func (a *MovieImdbServiceImpl) GetListMovieData(in interface{}) (interface{}, er
 	}
 	var out *model.ResponseListFilm
 	err = mapstructure.Decode(resp, &out)
+	if err != nil {
+		return nil, err
+	}
 	wg := &sync.WaitGroup{}
-
 	for _, dt := range out.ListFilm {
 		wg.Add(1)
 		go func(in *model.DataFilmList) {
@@ -44,6 +46,7 @@ func (a *MovieImdbServiceImpl) GetListMovieData(in interface{}) (interface{}, er
 			res, err := a.repo.GetDeatailMovie(in.ImdbId)
 			if err != nil {
 				fmt.Println("Error In Data =>", in.ImdbId)
+				return
 			}
 			in.Detail = res.(*model.ResponseGetDetailMovie)
 		}(dt)

@@ -2,6 +2,7 @@ package controller
 
 import (
 	proto "bibit/app/infrastructure/grpc/proto/movie"
+	"bibit/app/model"
 	"bibit/app/service/movie_omdb"
 	m "bibit/app/shared/mock"
 	"context"
@@ -47,14 +48,22 @@ func TestMovieImdbController_GetDatilMovie(t *testing.T) {
 }
 
 func TestMovieImdbController_GetListMovieOmdb(t *testing.T) {
-	Convey("GetDetail Movie", t, func() {
+	Convey("Get List Movie", t, func() {
 		Convey("Positive Scenario", func() {
 			client := &m.MovieImdbMockRepo{}
 			uc := movie_omdb.NewMovieImdbServiceImpl(client)
 			req := &proto.GetListMovieRequest{
 				Keyword: "1",
 			}
-			client.On("GetListMovieOmdb", mock.Anything).Return(&proto.ResponseListFilm{}, nil)
+			list := []*proto.DataFilmList{
+				&proto.DataFilmList{
+					ImdbId: "1",
+				},
+			}
+			client.On("GetDeatailMovie", "1").Return(&model.ResponseGetDetailMovie{}, nil)
+			client.On("GetListMovieOmdb", mock.Anything).Return(&proto.ResponseListFilm{
+				ListFilm: list,
+			}, nil)
 			svc := NewMovieIMdbController(uc)
 			_, err := svc.GetListMovieOmdb(context.Background(), req)
 
@@ -71,11 +80,11 @@ func TestMovieImdbController_GetListMovieOmdb(t *testing.T) {
 				So(err, ShouldNotBeNil)
 			})
 			Convey("Error Decode Response From Res", func() {
-				client := &m.MovieImdbMockRepo{}
-				uc := movie_omdb.NewMovieImdbServiceImpl(client)
+				client := &m.MovieImdbMockSevice{}
+				//uc := movie_omdb.NewMovieImdbServiceImpl(client)
 				req := &proto.GetListMovieRequest{}
-				client.On("GetListMovieOmdb", mock.Anything).Return([]string{"1"}, nil)
-				svc := NewMovieIMdbController(uc)
+				client.On("GetListMovieData", mock.Anything).Return([]string{"1"}, nil)
+				svc := NewMovieIMdbController(client)
 				_, err := svc.GetListMovieOmdb(context.Background(), req)
 
 				So(err, ShouldNotBeNil)
