@@ -48,12 +48,11 @@ func TestMovieImdbServiceImpl_GetListMovieData(t *testing.T) {
 			}
 			var lis []*model.DataFilmList
 
-			lis = append(lis,&model.DataFilmList{
+			lis = append(lis, &model.DataFilmList{
 				ImdbId: "1",
-
 			})
-			out:= &model.ResponseListFilm{
-				ListFilm: lis,
+			out := &model.ResponseListFilm{
+				ListFilm:    lis,
 				TotalResult: "1",
 			}
 			client.On("GetDeatailMovie", "1").Return(&model.ResponseGetDetailMovie{}, nil)
@@ -105,12 +104,11 @@ func TestMovieImdbServiceImpl_GetListMovieData(t *testing.T) {
 				}
 				var lis []*model.DataFilmList
 
-				lis = append(lis,&model.DataFilmList{
+				lis = append(lis, &model.DataFilmList{
 					ImdbId: "1",
-
 				})
-				out:= &model.ResponseListFilm{
-					ListFilm: lis,
+				out := &model.ResponseListFilm{
+					ListFilm:    lis,
 					TotalResult: "1",
 				}
 				client.On("GetDeatailMovie", "1").Return(nil, errors.New("Err"))

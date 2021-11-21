@@ -56,7 +56,7 @@ func TestMovieImdbController_GetListMovieOmdb(t *testing.T) {
 				Keyword: "1",
 			}
 			list := []*proto.DataFilmList{
-				&proto.DataFilmList{
+				{
 					ImdbId: "1",
 				},
 			}

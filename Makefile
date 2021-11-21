@@ -27,4 +27,5 @@ protoc: clean
 
 run-app:
 	@echo "--- running Aplication server in dev mode ---"
+	@cp app/infrastructure/swagger/movie.swagger.json cmd/server/main/docs/swagger.json
 	@ go run cmd/server/main/main.go grpc
