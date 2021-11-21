@@ -5,8 +5,8 @@ type ServerList struct {
 }
 
 type Server struct {
-	Host    string `yaml:"host"`
-	Port    string    `yaml:"port"`
-	Timeout int    `yaml:"timeout"`
-	RestHost string   `yaml:"restHost"`
+	Host     string `yaml:"host"`
+	Port     string `yaml:"port"`
+	Timeout  int    `yaml:"timeout"`
+	RestHost string `yaml:"restHost"`
 }

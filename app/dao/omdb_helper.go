@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"TEST/bibi_test/app/model"
-	"TEST/bibi_test/app/repository"
+	"bibit/app/model"
+	"bibit/app/repository"
 	"encoding/json"
 	"fmt"
 	"github.com/go-resty/resty/v2"

@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"TEST/bibi_test/app/model"
+	"bibit/app/model"
 	"fmt"
 	"github.com/mitchellh/mapstructure"
 	"gorm.io/gorm"

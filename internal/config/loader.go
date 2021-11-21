@@ -1,10 +1,10 @@
 package config
 
 import (
-	"TEST/bibi_test/internal/config/client"
-	"TEST/bibi_test/internal/config/db"
-	"TEST/bibi_test/internal/config/logger"
-	"TEST/bibi_test/internal/config/server"
+	"bibit/internal/config/client"
+	"bibit/internal/config/db"
+	"bibit/internal/config/logger"
+	"bibit/internal/config/server"
 	"encoding/json"
 	"fmt"
 	"github.com/spf13/viper"

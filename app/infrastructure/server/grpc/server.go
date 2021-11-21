@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	proto "TEST/bibi_test/app/infrastructure/grpc/proto/movie"
+	proto "bibit/app/infrastructure/grpc/proto/movie"
 	"context"
 	"google.golang.org/grpc"
 	"log"
@@ -29,6 +29,6 @@ func RunServer(ctx context.Context, v1API proto.OmdbMovieServiceServer, port str
 		}
 	}()
 	// start gRPC server
-	log.Println("starting gRPC server...",port)
+	log.Println("starting gRPC server...", port)
 	return server.Serve(listen)
 }

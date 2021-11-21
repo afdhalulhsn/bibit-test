@@ -1,8 +1,8 @@
 package movie_omdb
 
 import (
-	"TEST/bibi_test/app/model"
-	"TEST/bibi_test/app/repository"
+	"bibit/app/model"
+	"bibit/app/repository"
 	"fmt"
 	"github.com/mitchellh/mapstructure"
 	"google.golang.org/grpc/codes"

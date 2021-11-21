@@ -1,9 +1,9 @@
 package dao
 
 import (
-	"TEST/bibi_test/app/model"
-	"TEST/bibi_test/app/repository"
-	"TEST/bibi_test/internal/config"
+	"bibit/app/model"
+	"bibit/app/repository"
+	"bibit/internal/config"
 	"strconv"
 )
 

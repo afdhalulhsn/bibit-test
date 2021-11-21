@@ -1,7 +1,7 @@
 package rest
 
 import (
-	proto "TEST/bibi_test/app/infrastructure/grpc/proto/movie"
+	proto "bibit/app/infrastructure/grpc/proto/movie"
 	"context"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
@@ -41,6 +41,6 @@ func RunRestServer(ctx context.Context, grpcPort, httpPort string) error {
 		_ = srv.Shutdown(ctx)
 	}()
 
-	log.Println("starting HTTP/REST gateway..."+httpPort)
+	log.Println("starting HTTP/REST gateway..." + httpPort)
 	return srv.ListenAndServe()
 }

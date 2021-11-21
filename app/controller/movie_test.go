@@ -1,9 +1,9 @@
 package controller
 
 import (
-	proto "TEST/bibi_test/app/infrastructure/grpc/proto/movie"
-	"TEST/bibi_test/app/service/movie_omdb"
-	m "TEST/bibi_test/app/shared/mock"
+	proto "bibit/app/infrastructure/grpc/proto/movie"
+	"bibit/app/service/movie_omdb"
+	m "bibit/app/shared/mock"
 	"context"
 	"errors"
 	. "github.com/smartystreets/goconvey/convey"

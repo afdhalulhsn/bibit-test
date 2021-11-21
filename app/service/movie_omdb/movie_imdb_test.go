@@ -1,8 +1,8 @@
 package movie_omdb
 
 import (
-	"TEST/bibi_test/app/model"
-	m "TEST/bibi_test/app/shared/mock"
+	"bibit/app/model"
+	m "bibit/app/shared/mock"
 	"errors"
 	. "github.com/smartystreets/goconvey/convey"
 	"github.com/stretchr/testify/mock"

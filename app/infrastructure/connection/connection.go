@@ -1,9 +1,9 @@
 package connection
 
 import (
-	"TEST/bibi_test/app/model"
-	"TEST/bibi_test/internal/config"
-	"TEST/bibi_test/internal/config/db"
+	"bibit/app/model"
+	"bibit/internal/config"
+	"bibit/internal/config/db"
 	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

@@ -1,13 +1,13 @@
 package main
 
 import (
-	"TEST/bibi_test/app/controller"
-	"TEST/bibi_test/app/dao"
-	"TEST/bibi_test/app/infrastructure/connection"
-	"TEST/bibi_test/app/infrastructure/server/grpc"
-	"TEST/bibi_test/app/infrastructure/server/rest"
-	"TEST/bibi_test/app/service/movie_omdb"
-	"TEST/bibi_test/internal/config"
+	"bibit/app/controller"
+	"bibit/app/dao"
+	"bibit/app/infrastructure/connection"
+	"bibit/app/infrastructure/server/grpc"
+	"bibit/app/infrastructure/server/rest"
+	"bibit/app/service/movie_omdb"
+	"bibit/internal/config"
 	"context"
 )
 

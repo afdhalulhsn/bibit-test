@@ -1,4 +1,4 @@
-module TEST/bibi_test
+module bibit
 
 go 1.16
 

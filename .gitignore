@@ -1,2 +1,3 @@
 /app/infrastructure/grpc/proto/
 /app/infrastructure/swagger/
+.idea

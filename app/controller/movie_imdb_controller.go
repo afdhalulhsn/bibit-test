@@ -1,8 +1,8 @@
 package controller
 
 import (
-	proto "TEST/bibi_test/app/infrastructure/grpc/proto/movie"
-	"TEST/bibi_test/app/service/movie_omdb"
+	proto "bibit/app/infrastructure/grpc/proto/movie"
+	"bibit/app/service/movie_omdb"
 	"context"
 	"github.com/mitchellh/mapstructure"
 	"google.golang.org/grpc/codes"
