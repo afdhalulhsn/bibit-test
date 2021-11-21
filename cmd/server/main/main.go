@@ -1,13 +1,9 @@
 package main
 
 import (
-	"bibit/app/controller"
-	"bibit/app/dao"
-	"bibit/app/infrastructure/connection"
 	"bibit/app/infrastructure/server/grpc"
 	"bibit/app/infrastructure/server/rest"
 	"bibit/app/infrastructure/server/swagger"
-	"bibit/app/service/movie_omdb"
 	"bibit/cmd/server/main/docs"
 	"bibit/internal/config"
 	"bytes"
@@ -20,10 +16,7 @@ import (
 func main() {
 	ctx := context.Background()
 	cfg := config.GetConfig()
-	logsAPi := dao.NewLogApiClient(connection.DbConn)
-	client := dao.NewMovieOmdbCLient(logsAPi)
-	svc := movie_omdb.NewMovieImdbServiceImpl(client)
-	controller := controller.NewMovieIMdbController(svc)
+
 
 	swJson := "./app/infrastructure/swagger/movie.swagger.json"
 	file, _ := os.Open(swJson)
@@ -43,6 +36,6 @@ func main() {
 	go func() {
 		swagger.RunSwagger()
 	}()
-	grpc.RunServer(ctx, controller, cfg.Server.Grpc.Port)
+	grpc.RunServer(ctx,cfg.Server.Grpc.Port)
 
 }

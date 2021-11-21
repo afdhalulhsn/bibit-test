@@ -17,7 +17,6 @@ func RunRestServer(ctx context.Context, grpcPort, httpPort string) error {
 	defer cancel()
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
-
 	if err := proto.RegisterOmdbMovieServiceHandlerFromEndpoint(ctx, mux, "localhost:"+grpcPort, opts); err != nil {
 		log.Fatalf("failed to start HTTP gateway: %v", err)
 	}
